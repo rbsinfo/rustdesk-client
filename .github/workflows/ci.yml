@@ -1,0 +1,61 @@
+# Fast checks on every push: lint, and apply the template to the RustDesk sources.
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  RUSTDESK_VERSION: "1.5.3"
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+
+      - name: Python syntax
+        run: python3 -m py_compile scripts/apply.py
+
+      - name: Shell scripts
+        run: shellcheck scripts/*.sh
+
+      - name: Workflows
+        run: |
+          bash <(curl -fsSL https://raw.githubusercontent.com/rhysd/actionlint/v1.7.7/scripts/download-actionlint.bash) 1.7.7
+          # Shell steps taken from the RustDesk workflow stay verbatim: no shellcheck here.
+          ./actionlint -color -shellcheck= .github/workflows/*.yml template/.github/workflows/build.yml
+
+      - name: Template is valid JSON
+        run: python3 -m json.tool template/custom.json > /dev/null
+
+  apply:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+
+      - name: Check out RustDesk
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          repository: rustdesk/rustdesk
+          ref: refs/tags/${{ env.RUSTDESK_VERSION }}
+          submodules: recursive
+          path: rustdesk
+          persist-credentials: false
+
+      - name: Apply the template
+        run: |
+          python3 -m pip install --quiet "pillow==11.3.0"
+          python3 scripts/apply.py --instance template --source rustdesk --check
+          python3 scripts/apply.py --instance template --source rustdesk
+
+      - name: The patched Rust sources still parse
+        run: rustfmt --edition 2021 --check rustdesk/src/common.rs > /dev/null

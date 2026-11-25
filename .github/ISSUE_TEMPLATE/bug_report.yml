@@ -1,0 +1,32 @@
+name: Bug report
+description: A build fails or the client does not behave as configured
+labels: [bug]
+body:
+  - type: input
+    id: rustdesk-version
+    attributes:
+      label: RustDesk version
+      placeholder: "1.5.3"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      multiple: true
+      options: [Windows, macOS, Linux]
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you got. Link the workflow run if a build failed.
+    validations:
+      required: true
+  - type: textarea
+    id: configuration
+    attributes:
+      label: Configuration
+      description: Your custom.json and the non-identifying part of client.env. Replace your server and key with placeholders.
+      render: text

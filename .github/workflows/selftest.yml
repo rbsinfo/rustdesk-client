@@ -1,0 +1,26 @@
+# Full build of the neutral template, to validate the generator itself.
+# Manual only: it takes about an hour of runner time.
+name: Self-test
+
+on:
+  workflow_dispatch:
+    inputs:
+      targets:
+        description: Platforms to build (windows, linux, macos)
+        default: "windows"
+      rustdesk-version:
+        description: RustDesk tag
+        default: "1.5.3"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    with:
+      instance-path: template
+      targets: ${{ inputs.targets }}
+      rustdesk-version: ${{ inputs.rustdesk-version }}
+      generator-repository: ${{ github.repository }}
+      generator-ref: ${{ github.sha }}

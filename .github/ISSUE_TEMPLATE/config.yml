@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/sadjo/rustdesk-client/wiki
+    about: Quick start, configuration reference and troubleshooting (English and French).
+  - name: RustDesk itself
+    url: https://github.com/rustdesk/rustdesk/issues
+    about: Problems that also happen with the official RustDesk client belong upstream.

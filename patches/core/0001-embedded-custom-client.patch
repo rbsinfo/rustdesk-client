@@ -1,0 +1,54 @@
+Compile the custom client settings into the binary.
+
+Upstream reads a custom.txt file next to the executable and only accepts it
+when it is signed with a key held by RustDesk. This build embeds the settings
+at compile time instead (src/custom_client.json, written by scripts/apply.py),
+so nothing next to the executable can change them.
+
+diff --git a/src/common.rs b/src/common.rs
+index 4bc5bc2..afe6d4f 100644
+--- a/src/common.rs
++++ b/src/common.rs
+@@ -2507,25 +2507,9 @@ pub fn rustdesk_interval(i: Interval) -> ThrottledInterval {
+ }
+ 
+ pub fn load_custom_client() {
+-    #[cfg(debug_assertions)]
+-    if let Ok(data) = std::fs::read_to_string("./custom.txt") {
+-        read_custom_client(data.trim());
+-        return;
+-    }
+-    let Some(path) = std::env::current_exe().map_or(None, |x| x.parent().map(|x| x.to_path_buf()))
+-    else {
+-        return;
+-    };
+-    #[cfg(target_os = "macos")]
+-    let path = path.join("../Resources");
+-    let path = path.join("custom.txt");
+-    if path.is_file() {
+-        let Ok(data) = std::fs::read_to_string(&path) else {
+-            log::error!("Failed to read custom client config");
+-            return;
+-        };
+-        read_custom_client(&data.trim());
+-    }
++    // The custom client settings are compiled into the binary. No external
++    // `custom.txt` is read, so nothing next to the executable can alter them.
++    apply_custom_client(include_bytes!("custom_client.json"));
+ }
+ 
+ fn read_custom_client_advanced_settings(
+@@ -2618,8 +2602,12 @@ pub fn read_custom_client(config: &str) {
+         log::error!("Failed to dec custom client config");
+         return;
+     };
++    apply_custom_client(&data);
++}
++
++fn apply_custom_client(data: &[u8]) {
+     let Ok(mut data) =
+-        serde_json::from_slice::<std::collections::HashMap<String, serde_json::Value>>(&data)
++        serde_json::from_slice::<std::collections::HashMap<String, serde_json::Value>>(data)
+     else {
+         log::error!("Failed to parse custom client config");
+         return;

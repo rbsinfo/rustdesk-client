@@ -1,0 +1,4 @@
+# Patches must reach git apply byte for byte.
+*.patch -text
+*.sh text eol=lf
+*.py text eol=lf

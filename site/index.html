@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en" data-lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rustdesk-client — build your own branded RustDesk client</title>
+  <meta name="description" content="A generator that builds a branded, preconfigured RustDesk remote-support client for Windows, macOS and Linux with GitHub Actions. Open source, AGPL-3.0."
+        data-content-en="A generator that builds a branded, preconfigured RustDesk remote-support client for Windows, macOS and Linux with GitHub Actions. Open source, AGPL-3.0."
+        data-content-fr="Un générateur qui compile avec GitHub Actions un client d'assistance à distance RustDesk à votre nom et déjà configuré, pour Windows, macOS et Linux. Open source, AGPL-3.0.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1114" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body data-title-en="rustdesk-client — build your own branded RustDesk client"
+      data-title-fr="rustdesk-client — compilez votre propre client RustDesk">
+
+<a class="skip" href="#main"><span lang="en">Skip to content</span><span lang="fr">Aller au contenu</span></a>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top" aria-label="rustdesk-client">
+      <svg class="brand-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="7" fill="var(--accent)"/>
+        <path d="M7 9.5h18v11H7z" fill="none" stroke="var(--accent-ink)" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M12 24.5h8" fill="none" stroke="var(--accent-ink)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M19.5 12 14 17.5m0-4v4h4" fill="none" stroke="var(--accent-ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-name">rustdesk-client</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Sections" data-aria-en="Sections" data-aria-fr="Rubriques">
+      <a href="#how"><span lang="en">How it works</span><span lang="fr">Principe</span></a>
+      <a href="#outputs"><span lang="en">Outputs</span><span lang="fr">Livrables</span></a>
+      <a href="#features"><span lang="en">Features</span><span lang="fr">Fonctions</span></a>
+      <a href="#limits"><span lang="en">Limitations</span><span lang="fr">Limites</span></a>
+      <a href="https://github.com/sadjo/rustdesk-client/wiki">Wiki</a>
+    </nav>
+
+    <div class="controls">
+      <div class="lang-switch" role="group" aria-label="Language" data-aria-en="Language" data-aria-fr="Langue">
+        <button type="button" data-set-lang="en" aria-pressed="true" title="English">EN</button>
+        <button type="button" data-set-lang="fr" aria-pressed="false" title="Français">FR</button>
+      </div>
+      <button type="button" class="icon-btn" id="theme-toggle" aria-label="Switch between light and dark theme"
+              data-aria-en="Switch between light and dark theme" data-aria-fr="Basculer entre thème clair et thème sombre">
+        <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <a class="icon-btn gh-link" href="https://github.com/sadjo/rustdesk-client" aria-label="rustdesk-client on GitHub"
+         data-aria-en="rustdesk-client on GitHub" data-aria-fr="rustdesk-client sur GitHub">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M9 6 3.5 12 9 18M15 6l5.5 6L15 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          Open source
+          <span class="sep" aria-hidden="true">/</span> AGPL-3.0
+          <span class="sep" aria-hidden="true">/</span> GitHub Actions
+        </p>
+        <h1 lang="en">Your own RustDesk client, <em>built from source</em> in your repository.</h1>
+        <h1 lang="fr">Votre client RustDesk, <em>compilé depuis les sources</em> dans votre dépôt.</h1>
+        <p class="lead" lang="en"><code>rustdesk-client</code> is a generator. It builds a branded, preconfigured remote-support client for Windows, macOS and Linux with GitHub Actions. Your name, your server and your key are compiled into the binary.</p>
+        <p class="lead" lang="fr"><code>rustdesk-client</code> est un générateur. Il compile avec GitHub Actions un client d'assistance à distance à votre nom et déjà configuré, pour Windows, macOS et Linux. Votre nom, votre serveur et votre clé sont compilés dans le binaire.</p>
+        <div class="actions">
+          <a class="btn btn-primary" lang="en" href="https://github.com/sadjo/rustdesk-client/wiki/Quick-Start">Quick start
+            <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><path d="M4 10h12m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn-primary" lang="fr" href="https://github.com/sadjo/rustdesk-client/wiki/Quick-Start-fr">Démarrage rapide
+            <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><path d="M4 10h12m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn-ghost" href="https://github.com/sadjo/rustdesk-client"><span lang="en">View on GitHub</span><span lang="fr">Voir sur GitHub</span></a>
+        </div>
+        <p class="fineprint" lang="en">Independent project. Not affiliated with RustDesk.</p>
+        <p class="fineprint" lang="fr">Projet indépendant. Non affilié à RustDesk.</p>
+      </div>
+
+      <figure class="release" aria-labelledby="release-caption">
+        <div class="release-bar">
+          <span class="release-repo" translate="no">example-org/remote-support</span>
+          <span class="release-tag" translate="no">v1.0.0</span>
+        </div>
+        <ul class="release-files" translate="no">
+          <li><span class="os os-win">win</span><span class="fname">remote-support-1.5.3-windows-x86_64<b>.exe</b></span></li>
+          <li><span class="os os-win">win</span><span class="fname">remote-support-1.5.3-windows-x86_64<b>.msi</b></span></li>
+          <li><span class="os os-mac">mac</span><span class="fname">remote-support-1.5.3-macos-x86_64<b>.dmg</b></span></li>
+          <li><span class="os os-mac">mac</span><span class="fname">remote-support-1.5.3-macos-aarch64<b>.dmg</b></span></li>
+          <li><span class="os os-lin">linux</span><span class="fname">remote-support-1.5.3-linux-x86_64<b>.deb</b></span></li>
+          <li><span class="os os-lin">linux</span><span class="fname">remote-support-1.5.3-linux-x86_64<b>.rpm</b></span></li>
+          <li><span class="os os-src">src</span><span class="fname">remote-support-1.5.3-source<b>.tar.gz</b></span></li>
+          <li><span class="os os-src">sum</span><span class="fname">SHA256SUMS</span></li>
+        </ul>
+        <figcaption id="release-caption">
+          <span lang="en">What a tagged build publishes: binaries, checksums and the modified source.</span>
+          <span lang="fr">Ce que publie un tag : les binaires, les sommes de contrôle et les sources modifiées.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Model -->
+  <section class="section model" aria-labelledby="model-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker"><span class="num">00</span> <span lang="en">The model</span><span lang="fr">Le modèle</span></p>
+        <h2 id="model-title">
+          <span lang="en">Two repositories. No fork to keep in sync.</span>
+          <span lang="fr">Deux dépôts. Aucun fork à synchroniser.</span>
+        </h2>
+        <p class="section-intro" lang="en">The generator is generic. Everything that belongs to your organisation lives in a small repository you own, whose workflow calls the generator at a fixed ref.</p>
+        <p class="section-intro" lang="fr">Le générateur est générique. Tout ce qui relève de votre organisation vit dans un petit dépôt qui vous appartient, dont le workflow appelle le générateur à une référence fixe.</p>
+      </div>
+
+      <div class="flow" role="list">
+        <div class="flow-box" role="listitem">
+          <p class="flow-label"><span lang="en">Your instance</span><span lang="fr">Votre instance</span></p>
+          <p class="flow-name" translate="no">example-org/remote-support</p>
+          <ul translate="no">
+            <li>client.env</li>
+            <li>custom.json</li>
+            <li>branding/icon.png</li>
+            <li>patches/*.patch</li>
+          </ul>
+        </div>
+        <div class="flow-link" aria-hidden="true"><span translate="no">uses @v1</span></div>
+        <div class="flow-box flow-box-accent" role="listitem">
+          <p class="flow-label"><span lang="en">The generator</span><span lang="fr">Le générateur</span></p>
+          <p class="flow-name" translate="no">sadjo/rustdesk-client</p>
+          <ul translate="no">
+            <li>scripts/apply.py</li>
+            <li>.github/workflows/build.yml</li>
+            <li>patches/core/</li>
+            <li>template/</li>
+          </ul>
+        </div>
+        <div class="flow-link" aria-hidden="true"><span translate="no">build</span></div>
+        <div class="flow-box" role="listitem">
+          <p class="flow-label"><span lang="en">Your release</span><span lang="fr">Votre release</span></p>
+          <p class="flow-name" translate="no">v1.0.0</p>
+          <ul>
+            <li translate="no">.exe&nbsp; .msi</li>
+            <li translate="no">.dmg × 2</li>
+            <li translate="no">.deb&nbsp; .rpm</li>
+            <li translate="no">source.tar.gz</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker"><span class="num">01</span> <span lang="en">How it works</span><span lang="fr">Principe</span></p>
+        <h2 id="how-title">
+          <span lang="en">Three steps from nothing to a release.</span>
+          <span lang="fr">Trois étapes pour arriver à une release.</span>
+        </h2>
+      </div>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step-copy">
+            <p class="step-num" aria-hidden="true">1</p>
+            <h3><span lang="en">Create your instance</span><span lang="fr">Créez votre instance</span></h3>
+            <p lang="en">One script asks for the application name, company, bundle identifier, server host, server public key and an optional API URL. It creates your GitHub repository from the template.</p>
+            <p lang="fr">Un script demande le nom de l'application, la société, l'identifiant de bundle, l'hôte du serveur, sa clé publique et une URL d'API facultative. Il crée votre dépôt GitHub à partir du modèle.</p>
+            <p class="note" lang="en">Needs <code>git</code> and <code>gh</code>. You can also copy <code>template/</code> by hand.</p>
+            <p class="note" lang="fr">Nécessite <code>git</code> et <code>gh</code>. Vous pouvez aussi copier <code>template/</code> à la main.</p>
+          </div>
+          <div class="step-code">
+            <div class="code">
+              <div class="code-head"><span class="code-file">shell</span><button type="button" class="copy" data-copy="c-new"><span lang="en">Copy</span><span lang="fr">Copier</span></button></div>
+<pre translate="no" tabindex="0"><code id="c-new">git clone https://github.com/sadjo/rustdesk-client
+cd rustdesk-client
+scripts/new-instance.sh example-org/remote-support --private</code></pre>
+            </div>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step-copy">
+            <p class="step-num" aria-hidden="true">2</p>
+            <h3><span lang="en">Configure</span><span lang="fr">Configurez</span></h3>
+            <p lang="en"><code>client.env</code> holds the identity and the server. <code>custom.json</code> holds the RustDesk settings. Drop your icon in <code>branding/</code>. Nothing here is secret: all of it can be read from the client you distribute.</p>
+            <p lang="fr"><code>client.env</code> porte l'identité et le serveur. <code>custom.json</code> porte les réglages RustDesk. Déposez votre icône dans <code>branding/</code>. Rien ici n'est secret : tout se lit dans le client distribué.</p>
+            <p class="note" lang="en">An invalid value stops the build with a message that names the key.</p>
+            <p class="note" lang="fr">Une valeur invalide arrête la compilation avec un message qui nomme la clé.</p>
+          </div>
+          <div class="step-code">
+            <div class="code">
+              <div class="code-head"><span class="code-file">client.env</span><button type="button" class="copy" data-copy="c-env"><span lang="en">Copy</span><span lang="fr">Copier</span></button></div>
+<pre translate="no" tabindex="0"><code id="c-env"><span class="tc"># Name shown to users, Windows executable, macOS bundle.</span>
+<span class="tk">APP_NAME</span>=Remote Support
+<span class="tk">COMPANY</span>=Example Org
+<span class="tk">BUNDLE_ID</span>=org.example.remotesupport
+
+<span class="tc"># Your server (hbbs) and the content of id_ed25519.pub.</span>
+<span class="tk">SERVER_HOST</span>=rustdesk.example.com
+<span class="tk">SERVER_KEY</span>=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+
+<span class="tc"># Optional.</span>
+<span class="tk">API_URL</span>=
+<span class="tk">WEBSITE_URL</span>=
+<span class="tk">SOURCE_URL</span>=https://github.com/example-org/remote-support
+<span class="tk">ACCENT_COLOR</span>=#1A2B3C</code></pre>
+            </div>
+            <div class="code">
+              <div class="code-head"><span class="code-file">custom.json</span><button type="button" class="copy" data-copy="c-json"><span lang="en">Copy</span><span lang="fr">Copier</span></button></div>
+<pre translate="no" tabindex="0"><code id="c-json">{
+  <span class="tk">"conn-type"</span>: <span class="ts">"incoming"</span>,
+  <span class="tk">"override-settings"</span>: {
+    <span class="tk">"hide-powered-by-me"</span>: <span class="ts">"Y"</span>,
+    <span class="tk">"allow-auto-update"</span>: <span class="ts">"N"</span>,
+    <span class="tk">"verification-method"</span>: <span class="ts">"use-both-passwords"</span>
+  },
+  <span class="tk">"default-settings"</span>: {}
+}</code></pre>
+            </div>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step-copy">
+            <p class="step-num" aria-hidden="true">3</p>
+            <h3><span lang="en">Build</span><span lang="fr">Compilez</span></h3>
+            <p lang="en">The workflow of your instance is a ten-line call to the generator. Run it by hand for test binaries. Push a tag to publish a release.</p>
+            <p lang="fr">Le workflow de votre instance tient en dix lignes : un appel au générateur. Lancez-le à la main pour des binaires de test. Poussez un tag pour publier une release.</p>
+            <p class="note" lang="en">Builds run on GitHub-hosted runners and take about 30 to 60 minutes.</p>
+            <p class="note" lang="fr">Les compilations tournent sur les runners hébergés par GitHub et durent environ 30 à 60 minutes.</p>
+          </div>
+          <div class="step-code">
+            <div class="code">
+              <div class="code-head"><span class="code-file">.github/workflows/build.yml</span><button type="button" class="copy" data-copy="c-yml"><span lang="en">Copy</span><span lang="fr">Copier</span></button></div>
+<pre translate="no" tabindex="0"><code id="c-yml"><span class="tk">jobs</span>:
+  <span class="tk">build</span>:
+    <span class="tc"># Keep the ref after "@" and `generator-ref` identical.</span>
+    <span class="tk">uses</span>: sadjo/rustdesk-client/.github/workflows/build.yml<span class="ta">@v1</span>
+    <span class="tk">with</span>:
+      <span class="tk">generator-ref</span>: <span class="ta">v1</span>
+      <span class="tk">rustdesk-version</span>: <span class="ts">"1.5.3"</span>
+      <span class="tk">targets</span>: ${{ inputs.targets || 'windows,linux,macos' }}
+      <span class="tk">release-tag</span>: ${{ startsWith(github.ref, 'refs/tags/') &amp;&amp; github.ref_name || '' }}
+    <span class="tk">secrets</span>: inherit</code></pre>
+            </div>
+            <div class="code">
+              <div class="code-head"><span class="code-file">shell</span><button type="button" class="copy" data-copy="c-tag"><span lang="en">Copy</span><span lang="fr">Copier</span></button></div>
+<pre translate="no" tabindex="0"><code id="c-tag">git tag v1.0.0
+git push origin v1.0.0</code></pre>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Outputs -->
+  <section class="section section-alt" id="outputs" aria-labelledby="outputs-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker"><span class="num">02</span> <span lang="en">Platforms and outputs</span><span lang="fr">Plateformes et livrables</span></p>
+        <h2 id="outputs-title">
+          <span lang="en">Six packages, one source archive, one checksum file.</span>
+          <span lang="fr">Six paquets, une archive de sources, un fichier de sommes de contrôle.</span>
+        </h2>
+        <p class="section-intro" lang="en">Built from the official RustDesk sources at a pinned tag, <code>1.5.3</code> by default. File names start with your application name.</p>
+        <p class="section-intro" lang="fr">Compilés à partir des sources officielles de RustDesk, à un tag fixé : <code>1.5.3</code> par défaut. Les noms de fichiers commencent par le nom de votre application.</p>
+      </div>
+
+      <div class="outputs">
+        <article class="out">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 20.5h6M12 17v3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>Windows</h3>
+          <p class="arch" translate="no">x86_64</p>
+          <ul translate="no">
+            <li><code>-windows-x86_64.exe</code></li>
+            <li><code>-windows-x86_64.msi</code></li>
+          </ul>
+          <p lang="en">The executable runs without installation and can install the client. The MSI suits deployment tools.</p>
+          <p lang="fr">L'exécutable se lance sans installation et peut installer le client. Le MSI convient aux outils de déploiement.</p>
+        </article>
+        <article class="out">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><rect x="5" y="5" width="14" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 18.5h19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>macOS</h3>
+          <p class="arch" translate="no">x86_64 · aarch64</p>
+          <ul translate="no">
+            <li><code>-macos-x86_64.dmg</code></li>
+            <li><code>-macos-aarch64.dmg</code></li>
+          </ul>
+          <p lang="en">One disk image for Intel, one for Apple Silicon. Ad hoc signed, or Developer ID signed and notarised with your secrets.</p>
+          <p lang="fr">Une image disque pour Intel, une pour Apple Silicon. Signature ad hoc, ou Developer ID et notarisation avec vos secrets.</p>
+        </article>
+        <article class="out">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="15" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m7 9.5 3 2.5-3 2.5M12.5 15H17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Linux</h3>
+          <p class="arch" translate="no">x86_64</p>
+          <ul translate="no">
+            <li><code>-linux-x86_64.deb</code></li>
+            <li><code>-linux-x86_64.rpm</code></li>
+          </ul>
+          <p lang="en">Debian and RPM packages. The package and the binary keep the upstream name <code>rustdesk</code>.</p>
+          <p lang="fr">Paquets Debian et RPM. Le paquet et le binaire gardent le nom d'origine <code>rustdesk</code>.</p>
+        </article>
+        <article class="out">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 7.5 12 12l8-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <h3><span lang="en">Source</span><span lang="fr">Sources</span></h3>
+          <p class="arch" translate="no">AGPL-3.0</p>
+          <ul translate="no">
+            <li><code>-source.tar.gz</code></li>
+            <li><code>SHA256SUMS</code></li>
+          </ul>
+          <p lang="en">The RustDesk sources exactly as modified for your client, attached to every release.</p>
+          <p lang="fr">Les sources de RustDesk exactement telles que modifiées pour votre client, jointes à chaque release.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="features" aria-labelledby="features-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker"><span class="num">03</span> <span lang="en">Features</span><span lang="fr">Fonctions</span></p>
+        <h2 id="features-title">
+          <span lang="en">Built for a support desk, not for a demo.</span>
+          <span lang="fr">Pensé pour un service d'assistance, pas pour une démo.</span>
+        </h2>
+      </div>
+
+      <ul class="features">
+        <li>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M19 5 8 16m0-7v7h7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <h3><span lang="en">Incoming only</span><span lang="fr">Réception seule</span></h3>
+          <p lang="en">With <code>"conn-type": "incoming"</code> the client can be controlled but cannot connect to other devices. It is what the template builds.</p>
+          <p lang="fr">Avec <code>"conn-type": "incoming"</code>, on peut prendre le contrôle du client, mais il ne peut pas se connecter à d'autres postes. C'est ce que produit le modèle.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><rect x="5" y="10.5" width="14" height="9.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <h3><span lang="en">Settings compiled in</span><span lang="fr">Réglages compilés</span></h3>
+          <p lang="en">Server, key and settings are part of the binary. No file next to the executable can change them. Preset passwords are refused: the binary is public.</p>
+          <p lang="fr">Le serveur, la clé et les réglages font partie du binaire. Aucun fichier posé à côté de l'exécutable ne peut les modifier. Les mots de passe prédéfinis sont refusés : le binaire est public.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><circle cx="6.5" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="6.5" cy="18" r="2.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="12" r="2.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M6.5 8.2v7.6M8.7 6h3.8a5 5 0 0 1 5 3.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <h3><span lang="en">No fork to maintain</span><span lang="fr">Aucun fork à maintenir</span></h3>
+          <p lang="en">Your repository holds configuration, not RustDesk code. Moving to a newer generator means changing <code>@v1</code> and <code>generator-ref</code>.</p>
+          <p lang="fr">Votre dépôt contient de la configuration, pas le code de RustDesk. Passer à un générateur plus récent revient à modifier <code>@v1</code> et <code>generator-ref</code>.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 4.5h14v15H5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.5 12.5 2.5 2.5 4.5-5.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3><span lang="en">Checked patching</span><span lang="fr">Modifications vérifiées</span></h3>
+          <p lang="en">Every edit of the RustDesk sources must match. If upstream changed, the build stops and names the pattern, instead of shipping a half-branded client.</p>
+          <p lang="fr">Chaque modification des sources de RustDesk doit correspondre. Si le code d'origine a changé, la compilation s'arrête et nomme le motif, au lieu de livrer un client à moitié personnalisé.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M7 3.5h7l4 4v13H7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3.5v4h4M10 12.5h5M10 16h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3><span lang="en">AGPL source attached</span><span lang="fr">Sources AGPL jointes</span></h3>
+          <p lang="en">Every release carries the complete corresponding source. The About page states that the client is a modified RustDesk and shows where its source lives.</p>
+          <p lang="fr">Chaque release embarque le code source correspondant complet. La page À propos indique que le client est un RustDesk modifié et où trouver ses sources.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M4 6.5h16M4 12h16M4 17.5h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="8" cy="6.5" r="1.8" fill="var(--surface)" stroke="currentColor" stroke-width="1.7"/><circle cx="15.5" cy="12" r="1.8" fill="var(--surface)" stroke="currentColor" stroke-width="1.7"/><circle cx="10.5" cy="17.5" r="1.8" fill="var(--surface)" stroke="currentColor" stroke-width="1.7"/></svg>
+          <h3><span lang="en">Beyond name and icon</span><span lang="fr">Au-delà du nom et de l'icône</span></h3>
+          <p lang="en">Name, icons and accent colour come from configuration. Anything else in the interface is a <code>.patch</code> file in your <code>patches/</code> directory.</p>
+          <p lang="fr">Le nom, les icônes et la couleur d'accent viennent de la configuration. Tout le reste de l'interface passe par un fichier <code>.patch</code> dans votre dossier <code>patches/</code>.</p>
+        </li>
+      </ul>
+
+      <div class="aside-row">
+        <p lang="en"><strong>One-off or installed.</strong> The client runs without installation for a single session. Installed, it runs as a service for unattended access, including UAC prompts and the login screen.</p>
+        <p lang="fr"><strong>Ponctuel ou installé.</strong> Le client se lance sans installation pour une session unique. Installé, il tourne en service pour l'accès sans surveillance, y compris sur les invites UAC et l'écran de connexion.</p>
+        <p lang="en"><strong>Console ready.</strong> With an API server (RustDesk Server Pro or a compatible console), each device appears with its ID, host name, user name, OS and version.</p>
+        <p lang="fr"><strong>Prêt pour une console.</strong> Avec un serveur d'API (RustDesk Server Pro ou une console compatible), chaque poste apparaît avec son ID, son nom d'hôte, le nom d'utilisateur, le système et la version.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations -->
+  <section class="section section-alt" id="limits" aria-labelledby="limits-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker"><span class="num">04</span> <span lang="en">Limitations</span><span lang="fr">Limites</span></p>
+        <h2 id="limits-title">
+          <span lang="en">What this first version does not do.</span>
+          <span lang="fr">Ce que cette première version ne fait pas.</span>
+        </h2>
+        <p class="section-intro" lang="en">Read this before you plan a rollout.</p>
+        <p class="section-intro" lang="fr">À lire avant de préparer un déploiement.</p>
+      </div>
+
+      <ul class="limits">
+        <li>
+          <h3><span lang="en">Desktop only</span><span lang="fr">Postes de travail uniquement</span></h3>
+          <p lang="en">Windows x86_64, macOS x86_64 and Apple Silicon, Linux x86_64. No Android, no iOS.</p>
+          <p lang="fr">Windows x86_64, macOS x86_64 et Apple Silicon, Linux x86_64. Ni Android, ni iOS.</p>
+        </li>
+        <li>
+          <h3><span lang="en">Windows is not code-signed yet</span><span lang="fr">Windows n'est pas encore signé</span></h3>
+          <p lang="en">SmartScreen shows a warning on first launch. Signing integration is planned.</p>
+          <p lang="fr">SmartScreen affiche un avertissement au premier lancement. L'intégration de la signature est prévue.</p>
+        </li>
+        <li>
+          <h3><span lang="en">macOS is ad hoc signed by default</span><span lang="fr">macOS : signature ad hoc par défaut</span></h3>
+          <p lang="en">Without the four <code>MACOS_*</code> secrets, users must allow the application in System Settings &gt; Privacy &amp; Security, and grant Screen Recording and Accessibility again after each update.</p>
+          <p lang="fr">Sans les quatre secrets <code>MACOS_*</code>, l'utilisateur doit autoriser l'application dans Réglages Système &gt; Confidentialité et sécurité, puis accorder de nouveau Enregistrement de l'écran et Accessibilité après chaque mise à jour.</p>
+        </li>
+        <li>
+          <h3><span lang="en">Linux keeps the upstream name</span><span lang="fr">Linux garde le nom d'origine</span></h3>
+          <p lang="en">The package and the binary are named <code>rustdesk</code>. The package cannot be installed next to the official one.</p>
+          <p lang="fr">Le paquet et le binaire s'appellent <code>rustdesk</code>. Le paquet ne peut pas cohabiter avec le paquet officiel.</p>
+        </li>
+        <li>
+          <h3><span lang="en">Privacy screen image</span><span lang="fr">Image de l'écran de confidentialité</span></h3>
+          <p lang="en">It cannot be customised yet.</p>
+          <p lang="fr">Elle n'est pas encore personnalisable.</p>
+        </li>
+        <li>
+          <h3><span lang="en">One tested RustDesk version</span><span lang="fr">Une seule version de RustDesk testée</span></h3>
+          <p lang="en">You can set <code>rustdesk-version</code>, but only the default is tested. If upstream changed, the build stops with the name of the pattern that no longer matches.</p>
+          <p lang="fr">Vous pouvez modifier <code>rustdesk-version</code>, mais seule la valeur par défaut est testée. Si le code d'origine a changé, la compilation s'arrête en nommant le motif qui ne correspond plus.</p>
+        </li>
+        <li>
+          <h3><span lang="en">Private repositories use minutes</span><span lang="fr">Les dépôts privés consomment des minutes</span></h3>
+          <p lang="en">GitHub-hosted runners are free for public repositories. A private instance consumes Actions minutes, and macOS runners count ten times.</p>
+          <p lang="fr">Les runners hébergés par GitHub sont gratuits pour les dépôts publics. Une instance privée consomme des minutes Actions, et les runners macOS comptent dix fois.</p>
+        </li>
+        <li>
+          <h3><span lang="en">You distribute, you publish the source</span><span lang="fr">Vous distribuez, vous publiez les sources</span></h3>
+          <p lang="en">The AGPL-3.0 requires you to offer the complete corresponding source to everyone who receives the client. The archive is built for you. Making it reachable is your job.</p>
+          <p lang="fr">L'AGPL-3.0 vous impose de proposer le code source correspondant complet à toute personne qui reçoit le client. L'archive est produite pour vous. La rendre accessible reste à votre charge.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="section closing" aria-labelledby="closing-title">
+    <div class="wrap closing-row">
+      <div>
+        <h2 id="closing-title">
+          <span lang="en">Start with the quick start.</span>
+          <span lang="fr">Commencez par le démarrage rapide.</span>
+        </h2>
+        <p lang="en">The wiki covers configuration, branding, patches, signing, server setup and upgrades, in English and in French.</p>
+        <p lang="fr">Le wiki couvre la configuration, l'identité visuelle, les patchs, la signature, le serveur et les mises à niveau, en français et en anglais.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" lang="en" href="https://github.com/sadjo/rustdesk-client/wiki/Quick-Start">Quick start</a>
+        <a class="btn btn-primary" lang="fr" href="https://github.com/sadjo/rustdesk-client/wiki/Quick-Start-fr">Démarrage rapide</a>
+        <a class="btn btn-ghost" href="https://github.com/sadjo/rustdesk-client/wiki"><span lang="en">Read the wiki</span><span lang="fr">Lire le wiki</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-brand" translate="no">rustdesk-client</p>
+      <p lang="en">Free software released under the <a href="https://github.com/sadjo/rustdesk-client/blob/main/LICENSE">GNU Affero General Public License v3.0</a>.</p>
+      <p lang="fr">Logiciel libre publié sous <a href="https://github.com/sadjo/rustdesk-client/blob/main/LICENSE">licence publique générale GNU Affero v3.0</a>.</p>
+    </div>
+    <div>
+      <p lang="en">rustdesk-client is an independent project. It is not affiliated with, endorsed by or supported by RustDesk or Purslane. "RustDesk" is a trademark of its owner. Clients built with this generator are modified versions of RustDesk.</p>
+      <p lang="fr">rustdesk-client est un projet indépendant. Il n'est ni affilié à RustDesk ou Purslane, ni approuvé ou pris en charge par eux. « RustDesk » est une marque de son propriétaire. Les clients produits avec ce générateur sont des versions modifiées de RustDesk.</p>
+    </div>
+    <nav class="footer-links" aria-label="Links" data-aria-en="Links" data-aria-fr="Liens">
+      <a href="https://github.com/sadjo/rustdesk-client">GitHub</a>
+      <a href="https://github.com/sadjo/rustdesk-client/wiki">Wiki</a>
+      <a lang="en" href="https://github.com/sadjo/rustdesk-client/wiki/Quick-Start">Quick start</a>
+      <a lang="fr" href="https://github.com/sadjo/rustdesk-client/wiki/Quick-Start-fr">Démarrage rapide</a>
+      <a href="https://github.com/sadjo/rustdesk-client/issues"><span lang="en">Issues</span><span lang="fr">Tickets</span></a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

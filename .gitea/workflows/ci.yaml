@@ -1,0 +1,23 @@
+# Light checks on Gitea. The full builds run on the GitHub mirror.
+# This file also stops Gitea from picking up .github/workflows.
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Python syntax
+        run: python3 -m py_compile scripts/apply.py
+
+      - name: Shell scripts
+        run: for f in scripts/*.sh; do bash -n "$f" && echo "OK $f"; done
+
+      - name: Template is valid JSON
+        run: python3 -m json.tool template/custom.json > /dev/null
