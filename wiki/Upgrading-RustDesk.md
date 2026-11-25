@@ -7,7 +7,7 @@ A client is built from the official RustDesk sources at a pinned tag. The defaul
 There are two version numbers in your instance workflow:
 
 ```yaml
-    uses: sadjo/rustdesk-client/.github/workflows/build.yml@v1
+    uses: rbsinfo/rustdesk-client/.github/workflows/build.yml@v1
     with:
       generator-ref: v1
       rustdesk-version: "1.5.3"
@@ -40,7 +40,7 @@ Check locally first. It takes a few minutes instead of a full build.
 
 ```sh
 git clone --branch 1.5.4 --recurse-submodules https://github.com/rustdesk/rustdesk rustdesk-1.5.4
-git clone https://github.com/sadjo/rustdesk-client
+git clone https://github.com/rbsinfo/rustdesk-client
 python3 -m pip install pillow
 python3 rustdesk-client/scripts/apply.py --instance path/to/instance --source rustdesk-1.5.4 --check
 ```

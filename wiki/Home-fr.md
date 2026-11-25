@@ -12,7 +12,7 @@ Il y a deux dépôts.
 
 | Dépôt | Propriétaire | Contenu |
 | --- | --- | --- |
-| Générateur (`sadjo/rustdesk-client`) | Ce projet | `scripts/apply.py`, le workflow de compilation réutilisable, le modèle d'instance. Rien de propre à une organisation. |
+| Générateur (`rbsinfo/rustdesk-client`) | Ce projet | `scripts/apply.py`, le workflow de compilation réutilisable, le modèle d'instance. Rien de propre à une organisation. |
 | Instance | Vous | Le nom de l'application, l'adresse du serveur, sa clé publique, les icônes et d'éventuels patchs, plus un court workflow qui appelle le générateur. |
 
 Le workflow de l'instance appelle le générateur à une référence fixe :
@@ -20,7 +20,7 @@ Le workflow de l'instance appelle le générateur à une référence fixe :
 ```yaml
 jobs:
   build:
-    uses: sadjo/rustdesk-client/.github/workflows/build.yml@v1
+    uses: rbsinfo/rustdesk-client/.github/workflows/build.yml@v1
     with:
       generator-ref: v1
       rustdesk-version: "1.5.3"

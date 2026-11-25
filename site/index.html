@@ -36,7 +36,7 @@
       <a href="#outputs"><span lang="en">Outputs</span><span lang="fr">Livrables</span></a>
       <a href="#features"><span lang="en">Features</span><span lang="fr">Fonctions</span></a>
       <a href="#limits"><span lang="en">Limitations</span><span lang="fr">Limites</span></a>
-      <a href="https://github.com/sadjo/rustdesk-client/wiki">Wiki</a>
+      <a href="https://github.com/rbsinfo/rustdesk-client/wiki">Wiki</a>
     </nav>
 
     <div class="controls">
@@ -49,7 +49,7 @@
         <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
         <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       </button>
-      <a class="icon-btn gh-link" href="https://github.com/sadjo/rustdesk-client" aria-label="rustdesk-client on GitHub"
+      <a class="icon-btn gh-link" href="https://github.com/rbsinfo/rustdesk-client" aria-label="rustdesk-client on GitHub"
          data-aria-en="rustdesk-client on GitHub" data-aria-fr="rustdesk-client sur GitHub">
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M9 6 3.5 12 9 18M15 6l5.5 6L15 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -73,11 +73,11 @@
         <p class="lead" lang="en"><code>rustdesk-client</code> is a generator. It builds a branded, preconfigured remote-support client for Windows, macOS and Linux with GitHub Actions. Your name, your server and your key are compiled into the binary.</p>
         <p class="lead" lang="fr"><code>rustdesk-client</code> est un générateur. Il compile avec GitHub Actions un client d'assistance à distance à votre nom et déjà configuré, pour Windows, macOS et Linux. Votre nom, votre serveur et votre clé sont compilés dans le binaire.</p>
         <div class="actions">
-          <a class="btn btn-primary" lang="en" href="https://github.com/sadjo/rustdesk-client/wiki/Quick-Start">Quick start
+          <a class="btn btn-primary" lang="en" href="https://github.com/rbsinfo/rustdesk-client/wiki/Quick-Start">Quick start
             <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><path d="M4 10h12m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a class="btn btn-primary" lang="fr" href="https://github.com/sadjo/rustdesk-client/wiki/Quick-Start-fr">Démarrage rapide
+          <a class="btn btn-primary" lang="fr" href="https://github.com/rbsinfo/rustdesk-client/wiki/Quick-Start-fr">Démarrage rapide
             <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><path d="M4 10h12m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a class="btn btn-ghost" href="https://github.com/sadjo/rustdesk-client"><span lang="en">View on GitHub</span><span lang="fr">Voir sur GitHub</span></a>
+          <a class="btn btn-ghost" href="https://github.com/rbsinfo/rustdesk-client"><span lang="en">View on GitHub</span><span lang="fr">Voir sur GitHub</span></a>
         </div>
         <p class="fineprint" lang="en">Independent project. Not affiliated with RustDesk.</p>
         <p class="fineprint" lang="fr">Projet indépendant. Non affilié à RustDesk.</p>
@@ -133,7 +133,7 @@
         <div class="flow-link" aria-hidden="true"><span translate="no">uses @v1</span></div>
         <div class="flow-box flow-box-accent" role="listitem">
           <p class="flow-label"><span lang="en">The generator</span><span lang="fr">Le générateur</span></p>
-          <p class="flow-name" translate="no">sadjo/rustdesk-client</p>
+          <p class="flow-name" translate="no">rbsinfo/rustdesk-client</p>
           <ul translate="no">
             <li>scripts/apply.py</li>
             <li>.github/workflows/build.yml</li>
@@ -180,7 +180,7 @@
           <div class="step-code">
             <div class="code">
               <div class="code-head"><span class="code-file">shell</span><button type="button" class="copy" data-copy="c-new"><span lang="en">Copy</span><span lang="fr">Copier</span></button></div>
-<pre translate="no" tabindex="0"><code id="c-new">git clone https://github.com/sadjo/rustdesk-client
+<pre translate="no" tabindex="0"><code id="c-new">git clone https://github.com/rbsinfo/rustdesk-client
 cd rustdesk-client
 scripts/new-instance.sh example-org/remote-support --private</code></pre>
             </div>
@@ -244,7 +244,7 @@ scripts/new-instance.sh example-org/remote-support --private</code></pre>
 <pre translate="no" tabindex="0"><code id="c-yml"><span class="tk">jobs</span>:
   <span class="tk">build</span>:
     <span class="tc"># Keep the ref after "@" and `generator-ref` identical.</span>
-    <span class="tk">uses</span>: sadjo/rustdesk-client/.github/workflows/build.yml<span class="ta">@v1</span>
+    <span class="tk">uses</span>: rbsinfo/rustdesk-client/.github/workflows/build.yml<span class="ta">@v1</span>
     <span class="tk">with</span>:
       <span class="tk">generator-ref</span>: <span class="ta">v1</span>
       <span class="tk">rustdesk-version</span>: <span class="ts">"1.5.3"</span>
@@ -454,9 +454,9 @@ git push origin v1.0.0</code></pre>
         <p lang="fr">Le wiki couvre la configuration, l'identité visuelle, les patchs, la signature, le serveur et les mises à niveau, en français et en anglais.</p>
       </div>
       <div class="actions">
-        <a class="btn btn-primary" lang="en" href="https://github.com/sadjo/rustdesk-client/wiki/Quick-Start">Quick start</a>
-        <a class="btn btn-primary" lang="fr" href="https://github.com/sadjo/rustdesk-client/wiki/Quick-Start-fr">Démarrage rapide</a>
-        <a class="btn btn-ghost" href="https://github.com/sadjo/rustdesk-client/wiki"><span lang="en">Read the wiki</span><span lang="fr">Lire le wiki</span></a>
+        <a class="btn btn-primary" lang="en" href="https://github.com/rbsinfo/rustdesk-client/wiki/Quick-Start">Quick start</a>
+        <a class="btn btn-primary" lang="fr" href="https://github.com/rbsinfo/rustdesk-client/wiki/Quick-Start-fr">Démarrage rapide</a>
+        <a class="btn btn-ghost" href="https://github.com/rbsinfo/rustdesk-client/wiki"><span lang="en">Read the wiki</span><span lang="fr">Lire le wiki</span></a>
       </div>
     </div>
   </section>
@@ -466,19 +466,19 @@ git push origin v1.0.0</code></pre>
   <div class="wrap footer-grid">
     <div>
       <p class="footer-brand" translate="no">rustdesk-client</p>
-      <p lang="en">Free software released under the <a href="https://github.com/sadjo/rustdesk-client/blob/main/LICENSE">GNU Affero General Public License v3.0</a>.</p>
-      <p lang="fr">Logiciel libre publié sous <a href="https://github.com/sadjo/rustdesk-client/blob/main/LICENSE">licence publique générale GNU Affero v3.0</a>.</p>
+      <p lang="en">Free software released under the <a href="https://github.com/rbsinfo/rustdesk-client/blob/main/LICENSE">GNU Affero General Public License v3.0</a>.</p>
+      <p lang="fr">Logiciel libre publié sous <a href="https://github.com/rbsinfo/rustdesk-client/blob/main/LICENSE">licence publique générale GNU Affero v3.0</a>.</p>
     </div>
     <div>
       <p lang="en">rustdesk-client is an independent project. It is not affiliated with, endorsed by or supported by RustDesk or Purslane. "RustDesk" is a trademark of its owner. Clients built with this generator are modified versions of RustDesk.</p>
       <p lang="fr">rustdesk-client est un projet indépendant. Il n'est ni affilié à RustDesk ou Purslane, ni approuvé ou pris en charge par eux. « RustDesk » est une marque de son propriétaire. Les clients produits avec ce générateur sont des versions modifiées de RustDesk.</p>
     </div>
     <nav class="footer-links" aria-label="Links" data-aria-en="Links" data-aria-fr="Liens">
-      <a href="https://github.com/sadjo/rustdesk-client">GitHub</a>
-      <a href="https://github.com/sadjo/rustdesk-client/wiki">Wiki</a>
-      <a lang="en" href="https://github.com/sadjo/rustdesk-client/wiki/Quick-Start">Quick start</a>
-      <a lang="fr" href="https://github.com/sadjo/rustdesk-client/wiki/Quick-Start-fr">Démarrage rapide</a>
-      <a href="https://github.com/sadjo/rustdesk-client/issues"><span lang="en">Issues</span><span lang="fr">Tickets</span></a>
+      <a href="https://github.com/rbsinfo/rustdesk-client">GitHub</a>
+      <a href="https://github.com/rbsinfo/rustdesk-client/wiki">Wiki</a>
+      <a lang="en" href="https://github.com/rbsinfo/rustdesk-client/wiki/Quick-Start">Quick start</a>
+      <a lang="fr" href="https://github.com/rbsinfo/rustdesk-client/wiki/Quick-Start-fr">Démarrage rapide</a>
+      <a href="https://github.com/rbsinfo/rustdesk-client/issues"><span lang="en">Issues</span><span lang="fr">Tickets</span></a>
     </nav>
   </div>
 </footer>

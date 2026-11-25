@@ -20,7 +20,7 @@ Un dépôt d'instance ne contient aucun secret. L'adresse du serveur et la clé 
 Clonez le générateur, puis lancez le script avec le nom du dépôt à créer.
 
 ```sh
-git clone https://github.com/sadjo/rustdesk-client
+git clone https://github.com/rbsinfo/rustdesk-client
 cd rustdesk-client
 scripts/new-instance.sh example-org/remote-support --private
 ```
@@ -45,7 +45,7 @@ Il crée ensuite le dépôt GitHub à partir de `template/` et affiche les étap
 Copiez le modèle dans un nouveau dépôt.
 
 ```sh
-git clone https://github.com/sadjo/rustdesk-client
+git clone https://github.com/rbsinfo/rustdesk-client
 mkdir remote-support
 cp -R rustdesk-client/template/. remote-support/
 cd remote-support

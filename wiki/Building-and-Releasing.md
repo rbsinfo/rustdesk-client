@@ -24,7 +24,7 @@ permissions:
 jobs:
   build:
     # Keep the ref after "@" and `generator-ref` identical.
-    uses: sadjo/rustdesk-client/.github/workflows/build.yml@v1
+    uses: rbsinfo/rustdesk-client/.github/workflows/build.yml@v1
     with:
       generator-ref: v1
       rustdesk-version: "1.5.3"
@@ -48,7 +48,7 @@ Two triggers:
 | `targets` | `"windows,linux,macos"` | Comma-separated list among `windows`, `linux`, `macos`. |
 | `instance-path` | `"."` | Directory of the instance inside the calling repository. |
 | `release-tag` | `""` | When set, the binaries are published as a GitHub release with this tag. |
-| `generator-repository` | `"sadjo/rustdesk-client"` | Repository that provides `scripts/apply.py`. Change it only when you call a fork. |
+| `generator-repository` | `"rbsinfo/rustdesk-client"` | Repository that provides `scripts/apply.py`. Change it only when you call a fork. |
 | `generator-ref` | `"v1"` | Ref of the generator. Keep it equal to the ref after `@` in `uses:`. |
 
 The ref after `@` selects the workflow file. `generator-ref` selects the scripts and patches. If they differ, the workflow and the scripts may not match.
@@ -151,7 +151,7 @@ sha256sum --check --ignore-missing SHA256SUMS
 `@v1` follows the `v1` line of the generator. For a build that does not change until you decide so, use a full commit SHA of the generator in both places:
 
 ```yaml
-    uses: sadjo/rustdesk-client/.github/workflows/build.yml@0123456789abcdef0123456789abcdef01234567
+    uses: rbsinfo/rustdesk-client/.github/workflows/build.yml@0123456789abcdef0123456789abcdef01234567
     with:
       generator-ref: 0123456789abcdef0123456789abcdef01234567
 ```

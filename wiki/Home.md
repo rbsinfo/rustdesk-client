@@ -12,7 +12,7 @@ There are two repositories.
 
 | Repository | Owner | Content |
 | --- | --- | --- |
-| Generator (`sadjo/rustdesk-client`) | This project | `scripts/apply.py`, the reusable build workflow, the instance template. Nothing organisation-specific. |
+| Generator (`rbsinfo/rustdesk-client`) | This project | `scripts/apply.py`, the reusable build workflow, the instance template. Nothing organisation-specific. |
 | Instance | You | Your application name, server address, server public key, icons and optional patches, plus a short workflow that calls the generator. |
 
 The instance workflow calls the generator at a fixed ref:
@@ -20,7 +20,7 @@ The instance workflow calls the generator at a fixed ref:
 ```yaml
 jobs:
   build:
-    uses: sadjo/rustdesk-client/.github/workflows/build.yml@v1
+    uses: rbsinfo/rustdesk-client/.github/workflows/build.yml@v1
     with:
       generator-ref: v1
       rustdesk-version: "1.5.3"

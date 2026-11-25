@@ -3,9 +3,9 @@
 Build your own branded, preconfigured [RustDesk](https://github.com/rustdesk/rustdesk)
 remote support client for Windows, macOS and Linux, with GitHub Actions.
 
-[Website](https://sadjo.github.io/rustdesk-client/) ·
-[Documentation](https://github.com/sadjo/rustdesk-client/wiki) ·
-[Documentation en français](https://github.com/sadjo/rustdesk-client/wiki/Home-fr)
+[Website](https://rbsinfo.github.io/rustdesk-client/) ·
+[Documentation](https://github.com/rbsinfo/rustdesk-client/wiki) ·
+[Documentation en français](https://github.com/rbsinfo/rustdesk-client/wiki/Home-fr)
 
 > This project is not affiliated with, endorsed by or sponsored by RustDesk or
 > Purslane Tech Pte. Ltd. "RustDesk" is a trademark of its owner.
@@ -36,14 +36,14 @@ cannot be used to reach other machines.
 ## Quick start
 
 ```sh
-git clone https://github.com/sadjo/rustdesk-client.git
+git clone https://github.com/rbsinfo/rustdesk-client.git
 cd rustdesk-client
 scripts/new-instance.sh my-org/my-support-client
 ```
 
 The script asks for the application name, your server host and its public key,
 creates the repository from [`template/`](template/) and tells you how to start
-the first build. The [quick start](https://github.com/sadjo/rustdesk-client/wiki/Quick-Start)
+the first build. The [quick start](https://github.com/rbsinfo/rustdesk-client/wiki/Quick-Start)
 covers the manual path as well.
 
 An instance is five files:
@@ -82,4 +82,4 @@ The generator targets RustDesk 1.5.3. Known limitations:
 [AGPL-3.0](LICENSE), like RustDesk. A client built with this project is a
 modified version of RustDesk: if you distribute it, you must offer its complete
 corresponding source. Releases made by the build workflow attach it. See
-[License and AGPL](https://github.com/sadjo/rustdesk-client/wiki/License-and-AGPL).
+[License and AGPL](https://github.com/rbsinfo/rustdesk-client/wiki/License-and-AGPL).

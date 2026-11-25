@@ -60,7 +60,7 @@ Les messages sont en anglais. Ils sont repris ici tels quels pour que vous puiss
 | Symptôme | Cause | Correction |
 | --- | --- | --- |
 | Le workflow n'apparaît pas dans l'onglet Actions. | `.github/` n'a pas été copié, ou Actions est désactivé sur le dépôt. | Vérifiez que `.github/workflows/build.yml` existe. Activez Actions dans **Settings > Actions**. |
-| L'exécution échoue immédiatement : workflow réutilisable introuvable. | Référence erronée après `@`, ou votre organisation restreint les actions et workflows réutilisables autorisés. | Vérifiez la référence. Autorisez `sadjo/rustdesk-client` et les actions qu'il utilise dans les paramètres de l'organisation. |
+| L'exécution échoue immédiatement : workflow réutilisable introuvable. | Référence erronée après `@`, ou votre organisation restreint les actions et workflows réutilisables autorisés. | Vérifiez la référence. Autorisez `rbsinfo/rustdesk-client` et les actions qu'il utilise dans les paramètres de l'organisation. |
 | Le comportement ne correspond pas à cette documentation. | La référence après `@` et `generator-ref` sont différentes. | Rendez-les identiques. |
 | Pas de release après une compilation. | L'exécution a été lancée à la main, le tag ne commence pas par `v`, ou un job de compilation a échoué. | Poussez un tag comme `v1.0.0`. Corrigez le job en échec. |
 | L'étape de publication échoue sur une erreur de droits. | `permissions: contents: write` manque dans le workflow de l'instance. | Reprenez-le du modèle. |

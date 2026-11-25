@@ -20,7 +20,7 @@ Nothing in an instance repository is secret. The server address and the public k
 Clone the generator and run the script with the name of the repository to create.
 
 ```sh
-git clone https://github.com/sadjo/rustdesk-client
+git clone https://github.com/rbsinfo/rustdesk-client
 cd rustdesk-client
 scripts/new-instance.sh example-org/remote-support --private
 ```
@@ -45,7 +45,7 @@ It then creates the GitHub repository from `template/` and prints the next steps
 Copy the template into a new repository.
 
 ```sh
-git clone https://github.com/sadjo/rustdesk-client
+git clone https://github.com/rbsinfo/rustdesk-client
 mkdir remote-support
 cp -R rustdesk-client/template/. remote-support/
 cd remote-support

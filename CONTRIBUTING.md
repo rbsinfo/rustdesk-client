@@ -1,7 +1,7 @@
 # Contributing
 
 Thank you for helping. Issues and pull requests are welcome on
-[GitHub](https://github.com/sadjo/rustdesk-client).
+[GitHub](https://github.com/rbsinfo/rustdesk-client).
 
 ## Ground rules
 

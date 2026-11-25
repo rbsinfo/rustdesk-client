@@ -188,7 +188,7 @@ You can validate an instance without waiting for a full build. You need Python 3
 
 ```sh
 git clone --branch 1.5.3 --recurse-submodules https://github.com/rustdesk/rustdesk
-git clone https://github.com/sadjo/rustdesk-client
+git clone https://github.com/rbsinfo/rustdesk-client
 python3 -m pip install pillow
 python3 rustdesk-client/scripts/apply.py --instance path/to/instance --source rustdesk --check
 ```

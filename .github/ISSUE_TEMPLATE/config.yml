@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: Documentation
-    url: https://github.com/sadjo/rustdesk-client/wiki
+    url: https://github.com/rbsinfo/rustdesk-client/wiki
     about: Quick start, configuration reference and troubleshooting (English and French).
   - name: RustDesk itself
     url: https://github.com/rustdesk/rustdesk/issues

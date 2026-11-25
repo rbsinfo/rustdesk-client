@@ -33,7 +33,7 @@ on:
       generator-repository:
         description: Repository providing scripts/apply.py. Change it only when you call a fork.
         type: string
-        default: "sadjo/rustdesk-client"
+        default: "rbsinfo/rustdesk-client"
       generator-ref:
         description: Ref of the generator to use. Keep it equal to the ref after "@" in `uses:`.
         type: string

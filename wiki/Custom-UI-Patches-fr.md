@@ -24,7 +24,7 @@ Reprenez la valeur de `rustdesk-version` dans votre `.github/workflows/build.yml
 
 ```sh
 git clone --branch 1.5.3 --recurse-submodules https://github.com/rustdesk/rustdesk
-git clone https://github.com/sadjo/rustdesk-client
+git clone https://github.com/rbsinfo/rustdesk-client
 ```
 
 ### 2. Appliquer votre configuration et valider

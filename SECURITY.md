@@ -3,7 +3,7 @@
 ## Reporting a vulnerability
 
 Please use GitHub's private reporting: **Security > Report a vulnerability** on
-<https://github.com/sadjo/rustdesk-client>. Do not open a public issue.
+<https://github.com/rbsinfo/rustdesk-client>. Do not open a public issue.
 
 In scope: the scripts, patches and workflows of this repository, for example a
 way to make a build embed settings other than those of its instance.

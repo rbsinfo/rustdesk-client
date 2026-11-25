@@ -7,7 +7,7 @@ Un client est compilé à partir des sources officielles de RustDesk, à un tag 
 Le workflow de votre instance porte deux numéros de version :
 
 ```yaml
-    uses: sadjo/rustdesk-client/.github/workflows/build.yml@v1
+    uses: rbsinfo/rustdesk-client/.github/workflows/build.yml@v1
     with:
       generator-ref: v1
       rustdesk-version: "1.5.3"
@@ -40,7 +40,7 @@ Vérifiez d'abord en local. C'est l'affaire de quelques minutes, contre une comp
 
 ```sh
 git clone --branch 1.5.4 --recurse-submodules https://github.com/rustdesk/rustdesk rustdesk-1.5.4
-git clone https://github.com/sadjo/rustdesk-client
+git clone https://github.com/rbsinfo/rustdesk-client
 python3 -m pip install pillow
 python3 rustdesk-client/scripts/apply.py --instance chemin/vers/instance --source rustdesk-1.5.4 --check
 ```

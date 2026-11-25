@@ -58,7 +58,7 @@ You can reproduce these errors on your machine in a few minutes. See "Check a co
 | Symptom | Cause | Fix |
 | --- | --- | --- |
 | The workflow does not appear in the Actions tab. | `.github/` was not copied, or Actions is disabled for the repository. | Check that `.github/workflows/build.yml` exists. Enable Actions in **Settings > Actions**. |
-| The run fails at once: the reusable workflow cannot be found. | Wrong ref after `@`, or your organisation restricts the actions and reusable workflows that may be used. | Check the ref. Allow `sadjo/rustdesk-client` and the actions it uses in the organisation settings. |
+| The run fails at once: the reusable workflow cannot be found. | Wrong ref after `@`, or your organisation restricts the actions and reusable workflows that may be used. | Check the ref. Allow `rbsinfo/rustdesk-client` and the actions it uses in the organisation settings. |
 | Behaviour differs from this documentation. | The ref after `@` and `generator-ref` are different. | Make them identical. |
 | No release after a build. | The run was started by hand, or the tag does not start with `v`, or a build job failed. | Push a tag such as `v1.0.0`. Fix the failed job. |
 | The release step fails with a permission error. | `permissions: contents: write` is missing from the instance workflow. | Restore it from the template. |

@@ -24,7 +24,7 @@ permissions:
 jobs:
   build:
     # Keep the ref after "@" and `generator-ref` identical.
-    uses: sadjo/rustdesk-client/.github/workflows/build.yml@v1
+    uses: rbsinfo/rustdesk-client/.github/workflows/build.yml@v1
     with:
       generator-ref: v1
       rustdesk-version: "1.5.3"
@@ -48,7 +48,7 @@ Deux déclencheurs :
 | `targets` | `"windows,linux,macos"` | Liste séparée par des virgules parmi `windows`, `linux`, `macos`. |
 | `instance-path` | `"."` | Dossier de l'instance dans le dépôt appelant. |
 | `release-tag` | `""` | Si renseigné, les binaires sont publiés dans une release GitHub portant ce tag. |
-| `generator-repository` | `"sadjo/rustdesk-client"` | Dépôt qui fournit `scripts/apply.py`. À modifier uniquement si vous appelez un fork. |
+| `generator-repository` | `"rbsinfo/rustdesk-client"` | Dépôt qui fournit `scripts/apply.py`. À modifier uniquement si vous appelez un fork. |
 | `generator-ref` | `"v1"` | Référence du générateur. Elle doit rester identique à celle placée après `@` dans `uses:`. |
 
 La référence après `@` choisit le fichier de workflow. `generator-ref` choisit les scripts et les patchs. Si elles diffèrent, le workflow et les scripts risquent de ne pas aller ensemble.
@@ -151,7 +151,7 @@ sha256sum --check --ignore-missing SHA256SUMS
 `@v1` suit la ligne `v1` du générateur. Pour une compilation qui ne change pas tant que vous ne l'avez pas décidé, indiquez le SHA complet d'un commit du générateur aux deux endroits :
 
 ```yaml
-    uses: sadjo/rustdesk-client/.github/workflows/build.yml@0123456789abcdef0123456789abcdef01234567
+    uses: rbsinfo/rustdesk-client/.github/workflows/build.yml@0123456789abcdef0123456789abcdef01234567
     with:
       generator-ref: 0123456789abcdef0123456789abcdef01234567
 ```
