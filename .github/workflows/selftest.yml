@@ -12,8 +12,10 @@ on:
         description: RustDesk tag
         default: "1.5.3"
 
+# The build workflow contains a release job that asks for write access. GitHub
+# validates that at start-up even though the job is skipped here (no release-tag).
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
