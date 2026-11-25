@@ -3,6 +3,13 @@
 Thank you for helping. Issues and pull requests are welcome on
 [GitHub](https://github.com/rbsinfo/rustdesk-client).
 
+## How changes land
+
+The GitHub repository is a mirror: the maintainers apply an accepted pull
+request to the primary repository, which then overwrites the mirror. Your
+commits keep their authorship, but the pull request shows as closed rather
+than merged.
+
 ## Ground rules
 
 - Code, comments, commit messages and files in this repository are in English.
