@@ -7,7 +7,7 @@ Open-source generator of branded RustDesk clients. `README.md` and `CONTRIBUTING
 - **Nothing specific to an organisation** may appear here (names, domains, keys, logos), apart from the project's own
   GitHub address `rbsinfo/rustdesk-client`. Examples use `Example Org`
   and `rustdesk.example.com`. Organisation data lives in instance repositories.
-- The repository is developed on Gitea (`sadjo/rustdesk-client`) and mirrored to GitHub (`rbsinfo/rustdesk-client`), where the builds, the wiki
+- The repository is developed on Gitea and mirrored to GitHub (both as `rbsinfo/rustdesk-client`), where the builds, the wiki
   and the website run. Never push a tag without explicit approval: instances follow the moving tag `v1`.
 - Every edit made to the RustDesk sources must be checked: `Source.replace` in `scripts/apply.py`, or a patch in
   `patches/core/`. No silent `sed`.
