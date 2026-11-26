@@ -84,7 +84,7 @@ jobs:
           - { flutter-version: "3.44.8", artifact-name: "bridge-artifact-flutter-3.44", archive-source: false }
     steps:
       - name: Check out RustDesk
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: rustdesk/rustdesk
           ref: refs/tags/${{ inputs.rustdesk-version }}
@@ -92,7 +92,7 @@ jobs:
           persist-credentials: false
 
       - name: Check out the generator
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: ${{ inputs.generator-repository }}
           ref: ${{ inputs.generator-ref }}
@@ -181,7 +181,7 @@ jobs:
     runs-on: windows-2022
     steps:
       - name: Add MSBuild to PATH
-        uses: microsoft/setup-msbuild@6fb02220983dee41ce7ae257b6f4d8f9bf5ed4ce # v2
+        uses: microsoft/setup-msbuild@30375c66a4eea26614e0d39710365f22f8b0af57 # v3
 
       - name: Build
         run: |
@@ -210,14 +210,14 @@ jobs:
       VCPKG_TRIPLET: x64-windows-static
     steps:
       - name: Export GitHub Actions cache environment variables
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
       - name: Check out RustDesk
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: rustdesk/rustdesk
           ref: refs/tags/${{ inputs.rustdesk-version }}
@@ -225,7 +225,7 @@ jobs:
           persist-credentials: false
 
       - name: Check out the generator
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: ${{ inputs.generator-repository }}
           ref: ${{ inputs.generator-ref }}
@@ -350,7 +350,7 @@ jobs:
           mv ./target/release/rustdesk-portable-packer.exe "./dist/${APP_SLUG}-${VERSION}-windows-x86_64.exe"
 
       - name: Add MSBuild to PATH
-        uses: microsoft/setup-msbuild@6fb02220983dee41ce7ae257b6f4d8f9bf5ed4ce # v2
+        uses: microsoft/setup-msbuild@30375c66a4eea26614e0d39710365f22f8b0af57 # v3
         with:
           msbuild-architecture: x86
 
@@ -399,14 +399,14 @@ jobs:
             }
     steps:
       - name: Export GitHub Actions cache environment variables
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
       - name: Check out RustDesk
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: rustdesk/rustdesk
           ref: refs/tags/${{ inputs.rustdesk-version }}
@@ -414,7 +414,7 @@ jobs:
           persist-credentials: false
 
       - name: Check out the generator
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: ${{ inputs.generator-repository }}
           ref: ${{ inputs.generator-ref }}
@@ -442,7 +442,7 @@ jobs:
 
       - name: Import notarize key
         if: env.MACOS_P12_BASE64 != null
-        uses: timheuer/base64-to-file@adaa40c0c581f276132199d4cf60afa07ce60eac # v1.2
+        uses: timheuer/base64-to-file@dfa5a5dd38803cb4f5c3a081eeb28e8362d43e9c # v2
         with:
           fileName: rustdesk.json
           fileDir: ${{ github.workspace }}
@@ -610,7 +610,7 @@ jobs:
       VCPKG_TRIPLET: x64-linux
     steps:
       - name: Export GitHub Actions cache environment variables
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
@@ -625,7 +625,7 @@ jobs:
           sudo apt-get install -y nasm qemu-user-static
 
       - name: Check out RustDesk
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: rustdesk/rustdesk
           ref: refs/tags/${{ inputs.rustdesk-version }}
@@ -633,7 +633,7 @@ jobs:
           persist-credentials: false
 
       - name: Check out the generator
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: ${{ inputs.generator-repository }}
           ref: ${{ inputs.generator-ref }}
@@ -818,7 +818,7 @@ jobs:
           cat SHA256SUMS
 
       - name: Publish
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v1
+        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3 # v3.0.4
         with:
           tag_name: ${{ inputs.release-tag }}
           files: ./dist/*
