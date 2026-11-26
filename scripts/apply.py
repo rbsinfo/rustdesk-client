@@ -259,6 +259,10 @@ def apply_names(source: Source, config: dict[str, str]) -> None:
     )
     source.replace(runner_rc, 'VALUE "ProductName", "RustDesk"', f'VALUE "ProductName", "{name}"')
 
+    # The MSI preprocessor runs the renamed executable to read its version and
+    # build date, without quoting its path: a name with a space would not start.
+    source.replace("res/msi/preprocess.py", 'f"{dist_app} {args}",', 'f\'"{dist_app}" {args}\',')
+
     # macOS bundle.
     source.replace("Cargo.toml", 'name = "RustDesk"\nidentifier = "com.carriez.rustdesk"',
                    f'name = "{name}"\nidentifier = "{bundle_id}"')
