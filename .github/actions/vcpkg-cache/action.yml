@@ -1,0 +1,34 @@
+# Caches the packages built by vcpkg, between the "Setup vcpkg" and the
+# "Install vcpkg dependencies" steps of a build job.
+#
+# RustDesk's workflow relies on vcpkg's `x-gha` binary cache, which vcpkg
+# removed: every build compiled ffmpeg, libvpx and the others again. vcpkg
+# now writes its archives to its default directory (VCPKG_BINARY_SOURCES is
+# `clear;default,readwrite` in build.yml, VCPKG_DEFAULT_BINARY_CACHE is set
+# by lukka/run-vcpkg) and this action saves that directory.
+name: Cache vcpkg packages
+description: Restore and save the binary packages built by vcpkg.
+
+inputs:
+  triplet:
+    description: vcpkg triplet of the job, part of the cache key.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    # Archives are looked up by ABI hash, so a restored cache is never wrong,
+    # only useless once the compiler changed. A new runner image saves a new
+    # entry, seeded from the previous one.
+    - name: Read the runner image version
+      id: image
+      shell: bash
+      run: echo "version=${ImageVersion:-unknown}" >> "$GITHUB_OUTPUT"
+
+    - name: Cache vcpkg packages
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
+        key: vcpkg-${{ inputs.triplet }}-${{ env.VCPKG_COMMIT_ID }}-${{ hashFiles('vcpkg.json', 'res/vcpkg/**') }}-${{ steps.image.outputs.version }}
+        restore-keys: |
+          vcpkg-${{ inputs.triplet }}-${{ env.VCPKG_COMMIT_ID }}-${{ hashFiles('vcpkg.json', 'res/vcpkg/**') }}-
